@@ -23,8 +23,9 @@ function M.apply_colors(syntax_map)
     for group, styles in pairs(syntax_map) do
         local fg = styles.fg or "NONE"
         local bg = styles.bg or "NONE"
-        vim.cmd(string.format("hi %s guifg=%s guibg=%s", group, fg, bg))
+        vim.cmd(string.format("hi %s guifg=%s guibg=%s ctermfg=NONE ctermbg=NONE", group, fg, bg))
     end
 end
 
 return M
+
