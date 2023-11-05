@@ -1,4 +1,4 @@
-local base_colors = require('rider_dark.colors.base').colors
+local base_colors = require('rider_dark.base').colors
 
 local rust_colors = {
     crate = "#ffb083",
