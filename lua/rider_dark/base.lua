@@ -1,31 +1,35 @@
-local M = {
-    colors = {
-        fg = "#bdbdbd",
-        string = "#c9a26d",
-        number = "#ed94c0",
-        comment = "#85c46c",
-        comment_alt = "#487d34",
-        keyword = "#6c95eb",
-        class = "#c191ff",
-        enum = "#e1bfff",
-        interface = "#9591ff",
-        method = "#39cc8f",
-        constant = "#66c3cc",
-        field = "#66c3cc",
-        todo = "#66c3cc",
-        macro = "#4eade5",
-        error = "#ff0000",
-        redundant = "#787878",
-    }
+local colors = require('rider_dark.colors')
+
+local base_syntax_map = {
+    -- Transparent background
+    ["Normal"] = {},
+    ["NormalNC"] = {},
+
+    -- Standard Highlight Groups
+    ["@variable"] = { fg = colors.fg },
+    ["@variable.builtin"] = { fg = colors.keyword },
+    ["Constant"] = { fg = colors.constant },
+    ["String"] = { fg = colors.string },
+    ["Number"] = { fg = colors.number },
+    ["Statement"] = { fg = colors.keyword },
+    ["Type"] = { fg = colors.class },
+    ["@field"] = { fg = colors.field },
+    ["Function"] = { fg = colors.method },
+    ["PreProc"] = { fg = colors.keyword },
+    ["@keyword"] = { fg = colors.keyword },
+    ["@operator"] = { fg = colors.fg },
+    ["@property"] = { fg = colors.field },
+    ["@parameter"] = { fg = colors.fg },
+    ["@keyword.function"] = { fg = colors.keyword },
+    ["@punctuation.bracket"] = { fg = colors.fg },
+    ["@punctuation.delimiter"] = { fg = colors.fg },
+    ["Comment"] = { fg = colors.comment },
+    ["@lsp.type.interface"] = { fg = colors.interface },
+    ["TodoFgtodo"] = { fg = colors.todo },
+    ["TodoBgTODO"] = { fg = colors.todo, bg = colors.none },
+    ["@type.builtin"] = { fg = colors.keyword },
+    ["DiagnosticUnderlineError"] = { fg = colors.error },
+    ["DiagnosticUnnecessary"] = { fg = colors.redundant },
 }
 
-function M.apply_colors(syntax_map)
-    for group, styles in pairs(syntax_map) do
-        local fg = styles.fg or "NONE"
-        local bg = styles.bg or "NONE"
-        vim.cmd(string.format("hi %s guifg=%s guibg=%s ctermfg=NONE ctermbg=NONE", group, fg, bg))
-    end
-end
-
-return M
-
+return base_syntax_map
