@@ -1,6 +1,6 @@
-local base = require('custom_colors.colors.base')
-local csharp_syntax = require('custom_colors.colors.csharp')
-local rust_syntax = require('custom_colors.colors.rust')
+local base = require('rider_dark.base')
+local csharp_syntax = require('rider_dark.csharp')
+local rust_syntax = require('rider_dark.rust')
 
 local function setup()
     -- Apply base colors

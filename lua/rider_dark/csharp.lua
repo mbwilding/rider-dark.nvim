@@ -1,4 +1,4 @@
-local base_colors = require('custom_colors.colors.base').colors
+local base_colors = require('rider_dark.colors.base').colors
 
 local syntax_map = {
     ["@namespace.c_sharp"] = { fg = base_colors.class },
